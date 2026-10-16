@@ -1,0 +1,20 @@
+## Regras de Git Ignore para ByteVault .NET / WPF / SQLite
+bin/
+obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+.vs/
+.idea/
+.vscode/
+
+# SQLite arquivos locais de teste temporários
+*.db-shm
+*.db-wal
+bytevault_temp.db
+*.db
+
+# Logs locais e builds distribuídos
+*.log
+dist/

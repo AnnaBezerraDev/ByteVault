@@ -1,0 +1,55 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <FontFamily x:Key="FontePadrao">Segoe UI Variable Display, Segoe UI, sans-serif</FontFamily>
+    <FontFamily x:Key="FonteCodigo">Cascadia Code, Consolas, Courier New, monospace</FontFamily>
+
+    <!-- Estilo Base para TextBlock -->
+    <Style TargetType="TextBlock" x:Key="TextoBase">
+        <Setter Property="FontFamily" Value="{StaticResource FontePadrao}" />
+        <Setter Property="Foreground" Value="{DynamicResource PincelTextoPrincipal}" />
+        <Setter Property="FontSize" Value="13" />
+    </Style>
+
+    <!-- Estilos Tipográficos Semânticos -->
+    <Style x:Key="EstiloTituloPagina" TargetType="TextBlock" BasedOn="{StaticResource TextoBase}">
+        <Setter Property="FontSize" Value="22" />
+        <Setter Property="FontWeight" Value="SemiBold" />
+        <Setter Property="Foreground" Value="{DynamicResource PincelTextoPrincipal}" />
+    </Style>
+
+    <Style x:Key="EstiloTituloSecao" TargetType="TextBlock" BasedOn="{StaticResource TextoBase}">
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="FontWeight" Value="SemiBold" />
+        <Setter Property="Foreground" Value="{DynamicResource PincelTextoPrincipal}" />
+    </Style>
+
+    <Style x:Key="EstiloTituloRegistro" TargetType="TextBlock" BasedOn="{StaticResource TextoBase}">
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="FontWeight" Value="Medium" />
+        <Setter Property="Foreground" Value="{DynamicResource PincelTextoPrincipal}" />
+    </Style>
+
+    <Style x:Key="EstiloTextoNormal" TargetType="TextBlock" BasedOn="{StaticResource TextoBase}">
+        <Setter Property="FontSize" Value="13" />
+        <Setter Property="Foreground" Value="{DynamicResource PincelTextoPrincipal}" />
+        <Setter Property="LineHeight" Value="20" />
+    </Style>
+
+    <Style x:Key="EstiloTextoAuxiliar" TargetType="TextBlock" BasedOn="{StaticResource TextoBase}">
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="Foreground" Value="{DynamicResource PincelTextoSecundario}" />
+    </Style>
+
+    <Style x:Key="EstiloMetadados" TargetType="TextBlock" BasedOn="{StaticResource TextoBase}">
+        <Setter Property="FontSize" Value="11" />
+        <Setter Property="Foreground" Value="{DynamicResource PincelTextoSecundario}" />
+    </Style>
+
+    <Style x:Key="EstiloCodigo" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource FonteCodigo}" />
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="Foreground" Value="{DynamicResource PincelTextoPrincipal}" />
+    </Style>
+
+</ResourceDictionary>

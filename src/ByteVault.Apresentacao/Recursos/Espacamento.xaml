@@ -1,0 +1,25 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+    <!-- Espaçamentos Base -->
+    <Thickness x:Key="MargemPequena">4</Thickness>
+    <Thickness x:Key="MargemMedia">8</Thickness>
+    <Thickness x:Key="MargemPadrao">12</Thickness>
+    <Thickness x:Key="MargemGrande">16</Thickness>
+    <Thickness x:Key="MargemExtraGrande">24</Thickness>
+
+    <!-- Preenchimentos (Paddings) -->
+    <Thickness x:Key="PreenchimentoBotao">12,6,12,6</Thickness>
+    <Thickness x:Key="PreenchimentoBotaoPequeno">8,4,8,4</Thickness>
+    <Thickness x:Key="PreenchimentoCampo">10,6,10,6</Thickness>
+    <Thickness x:Key="PreenchimentoCartao">16</Thickness>
+    <Thickness x:Key="PreenchimentoPainel">20</Thickness>
+
+    <!-- Cantos Arredondados (CornerRadius) Sutis e Técnicos -->
+    <CornerRadius x:Key="RaioBordaPequeno">4</CornerRadius>
+    <CornerRadius x:Key="RaioBordaPadrao">6</CornerRadius>
+    <CornerRadius x:Key="RaioBordaCartao">6</CornerRadius>
+    <CornerRadius x:Key="RaioBordaTag">4</CornerRadius>
+
+</ResourceDictionary>

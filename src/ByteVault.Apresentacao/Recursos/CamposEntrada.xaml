@@ -1,0 +1,76 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- Estilo de Campo de Texto (TextBox) -->
+    <Style x:Key="EstiloCampoTexto" TargetType="TextBox">
+        <Setter Property="Background" Value="{DynamicResource PincelSuperficieElevada}" />
+        <Setter Property="Foreground" Value="{DynamicResource PincelTextoPrincipal}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource PincelBorda}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="FontFamily" Value="{StaticResource FontePadrao}" />
+        <Setter Property="FontSize" Value="13" />
+        <Setter Property="Padding" Value="10,7" />
+        <Setter Property="CaretBrush" Value="{DynamicResource PincelDestaquePrimaria}" />
+        <Setter Property="SelectionBrush" Value="{DynamicResource PincelDestaquePrimaria}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="TextBox">
+                    <Border x:Name="border"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{StaticResource RaioBordaPadrao}">
+                        <ScrollViewer x:Name="PART_ContentHost"
+                                      Focusable="false"
+                                      HorizontalScrollBarVisibility="Hidden"
+                                      VerticalScrollBarVisibility="Hidden"
+                                      Margin="{TemplateBinding Padding}" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource PincelBordaFoco}" />
+                        </Trigger>
+                        <Trigger Property="IsFocused" Value="True">
+                            <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource PincelDestaquePrimaria}" />
+                            <Setter TargetName="border" Property="Background" Value="{DynamicResource PincelSuperficieSecundaria}" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="border" Property="Background" Value="{DynamicResource PincelFundoPrincipal}" />
+                            <Setter Property="Foreground" Value="{DynamicResource PincelTextoDesabilitado}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- Estilo de ComboBox -->
+    <Style x:Key="EstiloComboBox" TargetType="ComboBox">
+        <Setter Property="Background" Value="{DynamicResource PincelSuperficieElevada}" />
+        <Setter Property="Foreground" Value="{DynamicResource PincelTextoPrincipal}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource PincelBorda}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="FontFamily" Value="{StaticResource FontePadrao}" />
+        <Setter Property="FontSize" Value="13" />
+        <Setter Property="Padding" Value="10,6" />
+        <Setter Property="ItemContainerStyle">
+            <Setter.Value>
+                <Style TargetType="ComboBoxItem">
+                    <Setter Property="Background" Value="{DynamicResource PincelSuperficieElevada}" />
+                    <Setter Property="Foreground" Value="{DynamicResource PincelTextoPrincipal}" />
+                    <Setter Property="Padding" Value="8,4" />
+                </Style>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- Estilo de CheckBox -->
+    <Style x:Key="EstiloCheckBox" TargetType="CheckBox">
+        <Setter Property="Foreground" Value="{DynamicResource PincelTextoPrincipal}" />
+        <Setter Property="FontFamily" Value="{StaticResource FontePadrao}" />
+        <Setter Property="FontSize" Value="13" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+    </Style>
+
+</ResourceDictionary>

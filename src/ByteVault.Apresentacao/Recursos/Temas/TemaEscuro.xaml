@@ -1,0 +1,42 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- Cores Base ByteVault Dark Studio -->
+    <Color x:Key="CorFundoPrincipal">#101114</Color>
+    <Color x:Key="CorBarraLateral">#15161B</Color>
+    <Color x:Key="CorSuperficieElevada">#1B1D23</Color>
+    <Color x:Key="CorSuperficieSecundaria">#22252D</Color>
+    <Color x:Key="CorBorda">#30333C</Color>
+    <Color x:Key="CorBordaFoco">#4E5466</Color>
+
+    <!-- Cores de Texto -->
+    <Color x:Key="CorTextoPrincipal">#F1F3F7</Color>
+    <Color x:Key="CorTextoSecundario">#A0A5B1</Color>
+    <Color x:Key="CorTextoDesabilitado">#707684</Color>
+
+    <!-- Cores de Destaque e Status -->
+    <Color x:Key="CorDestaquePrimaria">#6C8CFF</Color>
+    <Color x:Key="CorDestaqueHover">#829CFF</Color>
+    <Color x:Key="CorSucesso">#55C995</Color>
+    <Color x:Key="CorAtencao">#E8B86D</Color>
+    <Color x:Key="CorErro">#F07878</Color>
+
+    <!-- Pincéis (Brushes) -->
+    <SolidColorBrush x:Key="PincelFundoPrincipal" Color="#101114" />
+    <SolidColorBrush x:Key="PincelBarraLateral" Color="#15161B" />
+    <SolidColorBrush x:Key="PincelSuperficieElevada" Color="#1B1D23" />
+    <SolidColorBrush x:Key="PincelSuperficieSecundaria" Color="#22252D" />
+    <SolidColorBrush x:Key="PincelBorda" Color="#30333C" />
+    <SolidColorBrush x:Key="PincelBordaFoco" Color="#4E5466" />
+
+    <SolidColorBrush x:Key="PincelTextoPrincipal" Color="#F1F3F7" />
+    <SolidColorBrush x:Key="PincelTextoSecundario" Color="#A0A5B1" />
+    <SolidColorBrush x:Key="PincelTextoDesabilitado" Color="#707684" />
+
+    <SolidColorBrush x:Key="PincelDestaquePrimaria" Color="#6C8CFF" />
+    <SolidColorBrush x:Key="PincelDestaqueHover" Color="#829CFF" />
+    <SolidColorBrush x:Key="PincelSucesso" Color="#55C995" />
+    <SolidColorBrush x:Key="PincelAtencao" Color="#E8B86D" />
+    <SolidColorBrush x:Key="PincelErro" Color="#F07878" />
+
+</ResourceDictionary>

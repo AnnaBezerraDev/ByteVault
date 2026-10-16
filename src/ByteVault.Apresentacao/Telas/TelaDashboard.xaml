@@ -1,0 +1,227 @@
+﻿<UserControl x:Class="ByteVault.Apresentacao.Telas.TelaDashboard"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:conv="clr-namespace:ByteVault.Apresentacao.Conversores"
+             mc:Ignorable="d" 
+             d:DesignHeight="700" d:DesignWidth="1000">
+
+    <UserControl.Resources>
+        <conv:ConversorBooleanoVisibilidade x:Key="BoolParaVisibilidade" />
+        <conv:ConversorBooleanoVisibilidade x:Key="BoolParaVisibilidadeInvertida" Inverter="True" />
+        <conv:ConversorDataPtBr x:Key="DataPtBr" />
+    </UserControl.Resources>
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Padding="24">
+        <StackPanel>
+            
+            <!-- Título e Subtítulo -->
+            <TextBlock Text="Painel de Produtividade" Style="{StaticResource EstiloTituloPagina}" Margin="0,0,0,4" />
+            <TextBlock Text="Métricas reais da sua base técnica e biblioteca de conhecimento" Style="{StaticResource EstiloTextoAuxiliar}" Margin="0,0,0,20" />
+
+            <!-- Banner Estado Vazio (Boas-vindas quando não há dados) -->
+            <Border Background="{DynamicResource PincelSuperficieElevada}"
+                    BorderBrush="{DynamicResource PincelDestaquePrimaria}"
+                    BorderThickness="1"
+                    CornerRadius="{StaticResource RaioBordaCartao}"
+                    Padding="20"
+                    Margin="0,0,0,20"
+                    Visibility="{Binding BancoVazio, Converter={StaticResource BoolParaVisibilidade}}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0">
+                        <TextBlock Text="Bem-vindo ao BYTEVAULT!" Style="{StaticResource EstiloTituloSecao}" Margin="0,0,0,6" />
+                        <TextBlock Text="Seu cofre técnico pessoal está pronto. Armazene códigos reutilizáveis, comandos de terminal frequentes, documente projetos e registre soluções para bugs cotidianos de forma 100% local e segura."
+                                   Style="{StaticResource EstiloTextoNormal}"
+                                   TextWrapping="Wrap"
+                                   Foreground="{DynamicResource PincelTextoSecundario}" />
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+            <!-- Ações de Acesso Rápido -->
+            <TextBlock Text="Acesso Rápido" Style="{StaticResource EstiloTituloSecao}" Margin="0,0,0,12" />
+            <WrapPanel Margin="0,0,0,24">
+                <Button Style="{StaticResource EstiloBotaoSecundario}"
+                        Command="{Binding NavegarParaSecaoCommand}"
+                        CommandParameter="Projetos"
+                        Margin="0,0,10,10">
+                    <StackPanel Orientation="Horizontal">
+                        <Path Data="{StaticResource IconeGeometriaProjetos}" Fill="{DynamicResource PincelDestaquePrimaria}" Width="14" Height="14" Stretch="Uniform" Margin="0,0,8,0" />
+                        <TextBlock Text="Novo Projeto" />
+                    </StackPanel>
+                </Button>
+
+                <Button Style="{StaticResource EstiloBotaoSecundario}"
+                        Command="{Binding NavegarParaSecaoCommand}"
+                        CommandParameter="Snippets"
+                        Margin="0,0,10,10">
+                    <StackPanel Orientation="Horizontal">
+                        <Path Data="{StaticResource IconeGeometriaSnippets}" Fill="{DynamicResource PincelDestaquePrimaria}" Width="14" Height="14" Stretch="Uniform" Margin="0,0,8,0" />
+                        <TextBlock Text="Novo Trecho de Código" />
+                    </StackPanel>
+                </Button>
+
+                <Button Style="{StaticResource EstiloBotaoSecundario}"
+                        Command="{Binding NavegarParaSecaoCommand}"
+                        CommandParameter="Comandos"
+                        Margin="0,0,10,10">
+                    <StackPanel Orientation="Horizontal">
+                        <Path Data="{StaticResource IconeGeometriaComandos}" Fill="{DynamicResource PincelDestaquePrimaria}" Width="14" Height="14" Stretch="Uniform" Margin="0,0,8,0" />
+                        <TextBlock Text="Novo Comando" />
+                    </StackPanel>
+                </Button>
+
+                <Button Style="{StaticResource EstiloBotaoSecundario}"
+                        Command="{Binding NavegarParaSecaoCommand}"
+                        CommandParameter="Anotacoes"
+                        Margin="0,0,10,10">
+                    <StackPanel Orientation="Horizontal">
+                        <Path Data="{StaticResource IconeGeometriaAnotacoes}" Fill="{DynamicResource PincelDestaquePrimaria}" Width="14" Height="14" Stretch="Uniform" Margin="0,0,8,0" />
+                        <TextBlock Text="Nova Anotação" />
+                    </StackPanel>
+                </Button>
+
+                <Button Style="{StaticResource EstiloBotaoSecundario}"
+                        Command="{Binding NavegarParaSecaoCommand}"
+                        CommandParameter="Bugs"
+                        Margin="0,0,10,10">
+                    <StackPanel Orientation="Horizontal">
+                        <Path Data="{StaticResource IconeGeometriaBugs}" Fill="{DynamicResource PincelErro}" Width="14" Height="14" Stretch="Uniform" Margin="0,0,8,0" />
+                        <TextBlock Text="Registrar Bug" />
+                    </StackPanel>
+                </Button>
+            </WrapPanel>
+
+            <!-- Grade de Métricas Reais -->
+            <TextBlock Text="Métricas do Cofre" Style="{StaticResource EstiloTituloSecao}" Margin="0,0,0,12" />
+            <UniformGrid Columns="3" Margin="0,0,0,24">
+                <!-- Projetos -->
+                <Border Style="{StaticResource EstiloCartaoMetrica}">
+                    <StackPanel>
+                        <TextBlock Text="PROJETOS CADASTRADOS" Style="{StaticResource EstiloMetadados}" Foreground="{DynamicResource PincelTextoSecundario}" Margin="0,0,0,8" />
+                        <TextBlock Text="{Binding Indicadores.TotalProjetos}" FontSize="28" FontWeight="Bold" Foreground="{DynamicResource PincelTextoPrincipal}" Margin="0,0,0,4" />
+                        <TextBlock Text="{Binding Indicadores.ProjetosAtivos, StringFormat='{}{0} em desenvolvimento'}" Style="{StaticResource EstiloTextoAuxiliar}" Foreground="{DynamicResource PincelSucesso}" />
+                    </StackPanel>
+                </Border>
+
+                <!-- Snippets -->
+                <Border Style="{StaticResource EstiloCartaoMetrica}">
+                    <StackPanel>
+                        <TextBlock Text="TRECHOS DE CÓDIGO" Style="{StaticResource EstiloMetadados}" Foreground="{DynamicResource PincelTextoSecundario}" Margin="0,0,0,8" />
+                        <TextBlock Text="{Binding Indicadores.TotalSnippets}" FontSize="28" FontWeight="Bold" Foreground="{DynamicResource PincelTextoPrincipal}" Margin="0,0,0,4" />
+                        <TextBlock Text="Snippets reutilizáveis" Style="{StaticResource EstiloTextoAuxiliar}" Foreground="{DynamicResource PincelDestaquePrimaria}" />
+                    </StackPanel>
+                </Border>
+
+                <!-- Comandos -->
+                <Border Style="{StaticResource EstiloCartaoMetrica}">
+                    <StackPanel>
+                        <TextBlock Text="COMANDOS DE CLI" Style="{StaticResource EstiloMetadados}" Foreground="{DynamicResource PincelTextoSecundario}" Margin="0,0,0,8" />
+                        <TextBlock Text="{Binding Indicadores.TotalComandos}" FontSize="28" FontWeight="Bold" Foreground="{DynamicResource PincelTextoPrincipal}" Margin="0,0,0,4" />
+                        <TextBlock Text="Comandos catalogados" Style="{StaticResource EstiloTextoAuxiliar}" />
+                    </StackPanel>
+                </Border>
+
+                <!-- Anotações -->
+                <Border Style="{StaticResource EstiloCartaoMetrica}">
+                    <StackPanel>
+                        <TextBlock Text="DOCUMENTAÇÕES &amp; NOTAS" Style="{StaticResource EstiloMetadados}" Foreground="{DynamicResource PincelTextoSecundario}" Margin="0,0,0,8" />
+                        <TextBlock Text="{Binding Indicadores.TotalAnotacoes}" FontSize="28" FontWeight="Bold" Foreground="{DynamicResource PincelTextoPrincipal}" Margin="0,0,0,4" />
+                        <TextBlock Text="Em formato Markdown" Style="{StaticResource EstiloTextoAuxiliar}" />
+                    </StackPanel>
+                </Border>
+
+                <!-- Bugs -->
+                <Border Style="{StaticResource EstiloCartaoMetrica}">
+                    <StackPanel>
+                        <TextBlock Text="BUGS EM ABERTO" Style="{StaticResource EstiloMetadados}" Foreground="{DynamicResource PincelTextoSecundario}" Margin="0,0,0,8" />
+                        <TextBlock Text="{Binding Indicadores.BugsNaoResolvidos}" FontSize="28" FontWeight="Bold" Foreground="{DynamicResource PincelErro}" Margin="0,0,0,4" />
+                        <TextBlock Text="Problemas não resolvidos" Style="{StaticResource EstiloTextoAuxiliar}" Foreground="{DynamicResource PincelAtencao}" />
+                    </StackPanel>
+                </Border>
+
+                <!-- Armazenamento -->
+                <Border Style="{StaticResource EstiloCartaoMetrica}">
+                    <StackPanel>
+                        <TextBlock Text="STATUS DO BANCO" Style="{StaticResource EstiloMetadados}" Foreground="{DynamicResource PincelTextoSecundario}" Margin="0,0,0,8" />
+                        <TextBlock Text="SQLite Ativo" FontSize="20" FontWeight="SemiBold" Foreground="{DynamicResource PincelSucesso}" Margin="0,4,0,4" />
+                        <TextBlock Text="Persistência local segura" Style="{StaticResource EstiloTextoAuxiliar}" />
+                    </StackPanel>
+                </Border>
+            </UniformGrid>
+
+            <!-- Seção Dupla: Atividade Recente e Favoritos -->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="20" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <!-- Coluna 1: Atividade Recente -->
+                <StackPanel Grid.Column="0">
+                    <TextBlock Text="Atividade Recente" Style="{StaticResource EstiloTituloSecao}" Margin="0,0,0,12" />
+                    
+                    <ItemsControl ItemsSource="{Binding AtividadesRecentes}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Border Style="{StaticResource EstiloCartaoConteudo}">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="Auto" />
+                                        </Grid.ColumnDefinitions>
+                                        <StackPanel Grid.Column="0">
+                                            <TextBlock Text="{Binding Titulo}" Style="{StaticResource EstiloTituloRegistro}" />
+                                            <TextBlock Style="{StaticResource EstiloMetadados}">
+                                                <Run Text="{Binding Categoria}" Foreground="{DynamicResource PincelDestaquePrimaria}" />
+                                                <Run Text=" • " />
+                                                <Run Text="{Binding TipoAcao}" />
+                                            </TextBlock>
+                                        </StackPanel>
+                                        <TextBlock Grid.Column="1" Text="{Binding DataHora, Converter={StaticResource DataPtBr}}" Style="{StaticResource EstiloMetadados}" VerticalAlignment="Center" />
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </StackPanel>
+
+                <!-- Coluna 2: Favoritos -->
+                <StackPanel Grid.Column="2">
+                    <TextBlock Text="Registros Favoritos" Style="{StaticResource EstiloTituloSecao}" Margin="0,0,0,12" />
+
+                    <ItemsControl ItemsSource="{Binding Favoritos}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Border Style="{StaticResource EstiloCartaoConteudo}">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="Auto" />
+                                        </Grid.ColumnDefinitions>
+                                        <StackPanel Grid.Column="0">
+                                            <TextBlock Text="{Binding Titulo}" Style="{StaticResource EstiloTituloRegistro}" />
+                                            <TextBlock Style="{StaticResource EstiloMetadados}">
+                                                <Run Text="{Binding Categoria}" Foreground="{DynamicResource PincelAtencao}" />
+                                                <Run Text=" • " />
+                                                <Run Text="{Binding Subtitulo}" />
+                                            </TextBlock>
+                                        </StackPanel>
+                                        <TextBlock Grid.Column="1" Text="{Binding DataAtualizacao, Converter={StaticResource DataPtBr}}" Style="{StaticResource EstiloMetadados}" VerticalAlignment="Center" />
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </StackPanel>
+            </Grid>
+
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

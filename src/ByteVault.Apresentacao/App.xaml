@@ -1,0 +1,17 @@
+<Application x:Class="ByteVault.Apresentacao.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Recursos/Cores.xaml" />
+                <ResourceDictionary Source="Recursos/Tipografia.xaml" />
+                <ResourceDictionary Source="Recursos/Espacamento.xaml" />
+                <ResourceDictionary Source="Recursos/Icones.xaml" />
+                <ResourceDictionary Source="Recursos/Botoes.xaml" />
+                <ResourceDictionary Source="Recursos/CamposEntrada.xaml" />
+                <ResourceDictionary Source="Recursos/Cartoes.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

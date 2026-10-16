@@ -1,0 +1,17 @@
+<UserControl x:Class="ByteVault.Apresentacao.Controles.EditorCodigoAvalon"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:avalonEdit="http://icsharpcode.net/sharpdevelop/avalonedit">
+    <Grid>
+        <avalonEdit:TextEditor x:Name="EditorInterno"
+                               FontFamily="{StaticResource FonteCodigo}"
+                               FontSize="13"
+                               Background="{DynamicResource PincelFundoPrincipal}"
+                               Foreground="{DynamicResource PincelTextoPrincipal}"
+                               LineNumbersForeground="{DynamicResource PincelTextoDesabilitado}"
+                               ShowLineNumbers="True"
+                               WordWrap="False"
+                               HorizontalScrollBarVisibility="Auto"
+                               VerticalScrollBarVisibility="Auto" />
+    </Grid>
+</UserControl>
